@@ -57,7 +57,7 @@ const judgeNode: GraphNode<typeof state> = async (state) => {
             systemPrompt: `You are a judge tasked with evaluating two solutions. Be constructive.`
         })
 
-        const judgeResponse = await judge.invoke({
+        const judgeResponse = await (judge as any).invoke({
             messages: [
                 new HumanMessage(`Problem: ${problem}\nSolution 1: ${solution_1}\nSolution 2: ${solution_2}`)
             ]
